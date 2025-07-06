@@ -50,7 +50,24 @@ You can run the app in a Docker container:
 
 ## Configuration
 
-- The API key is currently hardcoded in `weather_app.py`. For production use, consider using environment variables or a configuration file to store sensitive information.
+- Set your OpenWeatherMap API key as an environment variable named `OPENWEATHER_API_KEY` before running the app. For example:
+
+  **On Linux/macOS:**
+  ```bash
+  export OPENWEATHER_API_KEY=your_api_key_here
+  python weather_app.py
+  ```
+
+  **On Windows (CMD):**
+  ```cmd
+  set OPENWEATHER_API_KEY=your_api_key_here
+  python weather_app.py
+  ```
+
+  **With Docker:**
+  ```bash
+  docker run -it -e OPENWEATHER_API_KEY=your_api_key_here weather-app
+  ```
 
 ## License
 

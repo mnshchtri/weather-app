@@ -1,7 +1,10 @@
 import requests
+import os
 
 def get_weather(city):
-    api_key = "b414b94b65dd037deddb3bd93c52f52c"
+    api_key = os.getenv("OPENWEATHER_API_KEY")
+    if not api_key:
+        raise Exception("Missing OpenWeatherMap API key. Please set the OPENWEATHER_API_KEY environment variable.")
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
     response = requests.get(url)
     weather_data = response.json()
